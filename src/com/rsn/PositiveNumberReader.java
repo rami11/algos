@@ -2,10 +2,18 @@ package com.rsn;
 
 import java.util.Scanner;
 
-public class Main {
+public class PositiveNumberReader {
 
     public static void main(String[] args) {
 
+        long n = readPositiveNumber();
+
+        System.out.print("Factorial of " + n + ": ");
+        System.out.println(factorial(n));
+
+    }
+
+    private static long readPositiveNumber() {
         long n;
         while (true) {
             try {
@@ -23,10 +31,7 @@ public class Main {
             }
         }
 
-        System.out.print("Factorial of " + n + ": ");
-        System.out.println(factorial(n));
-
-
+        return n;
     }
 
     private static long factorial(long n) {
