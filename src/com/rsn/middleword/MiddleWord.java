@@ -1,4 +1,4 @@
-package com.rsn;
+package com.rsn.middleword;
 
 public class MiddleWord {
 

@@ -1,10 +1,10 @@
 package com.rsn.ArithmeticFunction;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class ArithmeticFunctionTest {
+class ArithmeticFunctionTest {
 
     @Test
     public void arithmetic() {
