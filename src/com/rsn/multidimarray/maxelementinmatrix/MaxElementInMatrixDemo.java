@@ -20,31 +20,8 @@ public class MaxElementInMatrixDemo {
                 }
             }
 
-
-            int max = Integer.MIN_VALUE;
-            List<int[]> maxIndexList = new ArrayList<>();
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    int element = array[i][j];
-                    if (element > max) {
-                        max = element;
-                        maxIndexList.clear();
-                        maxIndexList.add(new int[]{i, j});
-                    } else if (element == max) {
-                        maxIndexList.add(new int[]{i, j});
-                    }
-                }
-            }
-
-            maxIndexList.sort((a, b) -> {
-                if (a[0] == b[0]) {
-                    return a[1] - b[1];
-                }
-                return a[0] - b[0];
-            });
-
-            Arrays.stream(maxIndexList.get(0)).forEach(el -> System.out.print(el + " "));
-            System.out.println('\n');
+            int[] maxIndexes = findMaxIndexes(array);
+            System.out.println(Arrays.toString(maxIndexes) + '\n');
 
             System.out.println("The array:");
             for (int[] row : array) {
@@ -54,5 +31,50 @@ public class MaxElementInMatrixDemo {
                 System.out.println();
             }
         }
+    }
+
+    private static int[] findMaxIndexes(int[][] array) {
+        int max = Integer.MIN_VALUE;
+        int maxI = -1, maxJ = -1;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                int element = array[i][j];
+                if (element > max) {
+                    max = element;
+                    maxI = i;
+                    maxJ = j;
+                }
+            }
+        }
+        return new int[]{maxI, maxJ};
+    }
+
+    /**
+     * Unnecessarily complex
+     */
+    private static int[] findMaxIndexesComplex(int[][] array) {
+        int max = Integer.MIN_VALUE;
+        List<int[]> maxIndexList = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                int element = array[i][j];
+                if (element > max) {
+                    max = element;
+                    maxIndexList.clear();
+                    maxIndexList.add(new int[]{i, j});
+                } else if (element == max) {
+                    maxIndexList.add(new int[]{i, j});
+                }
+            }
+        }
+
+        maxIndexList.sort((a, b) -> {
+            if (a[0] == b[0]) {
+                return a[1] - b[1];
+            }
+            return a[0] - b[0];
+        });
+
+        return maxIndexList.get(0);
     }
 }
