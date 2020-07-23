@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        try (Scanner scanner = new Scanner(new FileReader("input.txt"))) {
+        try (Scanner scanner = new Scanner(new FileReader("input1.txt"))) {
             int n = scanner.nextInt();
             printSquares(n);
         }

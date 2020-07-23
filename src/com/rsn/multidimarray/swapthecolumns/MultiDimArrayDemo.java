@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MultiDimArrayDemo {
     public static void main(String[] args) throws FileNotFoundException {
-        try (Scanner scanner = new Scanner(new FileReader("input.txt"))) {
+        try (Scanner scanner = new Scanner(new FileReader("input1.txt"))) {
             int rows = scanner.nextInt();
             int cols = scanner.nextInt();
             int[][] array = new int[rows][cols];
