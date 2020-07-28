@@ -28,6 +28,9 @@ public class LetterCubes2 {
     }
 
     static int countDistinctSubstrings(String str) {
+        if (str.isEmpty()) {
+            return 1;
+        }
         int count = 2;
         for (int i = 2; i < str.length() + 1; i++) {
             StringBuilder substrBuilder = new StringBuilder(str.substring(0, i));
