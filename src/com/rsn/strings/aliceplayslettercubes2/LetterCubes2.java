@@ -7,9 +7,9 @@ import java.util.*;
 public class LetterCubes2 {
 
     public static void main(String[] args) throws FileNotFoundException {
-        try (Scanner scanner = new Scanner(new FileReader("input1.txt"))) {
+        try (Scanner scanner = new Scanner(new FileReader("input3.txt"))) {
             String str = scanner.next();
-            int count = countDistinctSubstrings(str);
+            int count = countDistinctSubstrings2(str);
             int countNaive = countDistinctSubstringsNaive(str);
             System.out.println("count: " + count);
             System.out.println("count naive: " + countNaive);
@@ -40,6 +40,21 @@ public class LetterCubes2 {
             count += reverseSubstr.length() - maxPrefix;
         }
         return count;
+    }
+
+    static int countDistinctSubstrings2(String str) {
+        int index = 0;
+        int[] prefix;
+        int noOfSubstrings = 1;
+        String newStr = "";
+        while (index < str.length()) {
+            int len = newStr.length();
+            newStr = str.charAt(index) + newStr;
+            prefix = prefixFunction(newStr);
+            noOfSubstrings += len + 1 - Arrays.stream(prefix).max().getAsInt();
+            index++;
+        }
+        return noOfSubstrings;
     }
 
     public static int[] prefixFunction(String str) {
