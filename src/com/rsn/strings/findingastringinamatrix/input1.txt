@@ -1,0 +1,6 @@
+baac
+4 5
+abaac
+fbcde
+abbba
+accba
