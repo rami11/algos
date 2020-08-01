@@ -1,4 +1,4 @@
-package com.rsn.stack;
+package com.rsn.stack.demo;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
